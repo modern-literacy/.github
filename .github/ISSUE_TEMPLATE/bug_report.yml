@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a reproducible defect in one of the organization repositories.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: dropdown
+    id: repository
+    attributes:
+      label: Repository
+      description: Which repository is affected?
+      options:
+        - aiden
+        - aiden-engine
+        - aiden-api
+        - aiden-policies-hipaa
+        - aiden-policies-controls
+        - aiden-policies-arch
+        - aiden-tools
+        - aiden-demo
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the problem in one or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide the smallest reproducible sequence you have.
+      placeholder: |
+        1. Go to ...
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation and context
+      description: Include logs, screenshots, trace IDs, or test output if useful. Do not include secrets.
