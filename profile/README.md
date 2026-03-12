@@ -1,39 +1,30 @@
 # Modern Literacy
 
-**1 hub + 7 delivery repos**
+Modern Literacy builds **AIDEN**, an internal engineering pre‑review gate.
 
-Modern Literacy builds **AIDEN**, a **governed decision system with bounded agentic assistance** for AI system intake. The deterministic engine remains authoritative. Assistive agents help humans shape proposals and interpret evidence, but they do not replace the gate.
+AIDEN helps internal engineering teams turn rough AI proposals into review‑ready packets by finding missing evidence early, generating the few architecture views reviewers need, and issuing a deterministic pre‑review recommendation before a human decision.
 
-![AIDEN publication and runtime separation](./assets/aiden-publication-view-stack.svg)
-![AIDEN demo screenshot strip](./assets/aiden-demo-screenshot-strip.svg)
+## Scope
+- **One use case:** internal **AI code review assistant** for engineering workflow / CI‑CD.
+- **Human review required:** AIDEN never replaces the human gate.
+- **Deterministic baseline:** the authoritative recommendation is deterministic; assistive modes explain and draft, but do not overwrite authority.
 
-## Start Here
-1. Open [`modern-literacy/aiden`](https://github.com/modern-literacy/aiden) for the architecture summary, repo map, and FPF view set.
-2. Open [`modern-literacy/aiden-demo`](https://github.com/modern-literacy/aiden-demo) to see deterministic, shadow, and live-assist behavior with visible controls.
-3. Open [`modern-literacy/aiden-engine`](https://github.com/modern-literacy/aiden-engine) to inspect contracts, policy lock refs, trace behavior, and the authoritative runtime.
+## Public contract (3 promises)
+1. It shows what is missing before human review.
+2. It gives reviewers only the evidence that matters.
+3. It never replaces the human gate.
 
-## Repo map
-- `aiden` — hub for architecture, intake, orchestration, and publication assets
-- `aiden-engine` — deterministic decision core plus bounded assistive runtime
-- `aiden-api` — schema-first .NET integration surface
-- `aiden-demo` — public demo surface
-- `aiden-tools` — review-pack, batch, and precedent tooling
-- `aiden-policies-hipaa` — privacy / PHI policies
-- `aiden-policies-controls` — transitional controls bundle
-- `aiden-policies-arch` — architecture policies
+Control language that stays visible:
+- Human review required.
+- Deterministic baseline is authoritative.
+- Deterministic fallback is available.
 
-## Modes
-- **Deterministic** — authoritative baseline
-- **Shadow** — bounded assistive comparison with no authority change
-- **Live Assist** — visible bounded assistive path with fallback and escalation
+## Start here
+1. Open [`modern-literacy/aiden-demo`](https://github.com/modern-literacy/aiden-demo) for the 90‑second walkthrough (authoring help → reviewer prep → deterministic baseline → human handoff).
+2. Open [`modern-literacy/aiden`](https://github.com/modern-literacy/aiden) for the golden-path artifacts and canonical messaging.
+3. Open [`modern-literacy/aiden-engine`](https://github.com/modern-literacy/aiden-engine) to inspect the deterministic contract and evidence outputs.
 
-## Responsible AI controls
-- no autonomous writes
-- no open-web browsing
-- human review required
-- tool allowlist enforced
-- trace redaction enforced
-- deterministic fallback available
-- visible safety, budget, trace, and evidence surfaces
+## Implementation (appendix)
+AIDEN is implemented across multiple repos (engine, demo, policies, tools). Repo topology and viewpoint diagrams live in the hub repo architecture docs; they are not the front‑door story.
 
 Security-sensitive concerns should follow the reporting path in [`SECURITY.md`](../SECURITY.md).
